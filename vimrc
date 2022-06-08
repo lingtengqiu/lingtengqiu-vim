@@ -1,11 +1,9 @@
 "==========================================
-" Author:  wklken
-" Version: 9.1
-" Email: wklken@yeah.net
-" BlogPost: http://www.wklken.me
+" Author:  Lingtengqiu
+" Version: 1.0
+" Email: qiulingteng@link.cuhk.edu.cn
 " ReadMe: README.md
-" Donation: http://www.wklken.me/pages/donation.html
-" Last_modify: 2015-12-15
+" Last_modify: 2022-6-8
 " Sections:
 "       -> Initial Plugin 加载插件
 "       -> General Settings 基础设置
@@ -18,6 +16,7 @@
 "
 "       -> 插件配置和具体设置在vimrc.bundles中
 " Note: Don't put anything in your .vimrc you don't understand!
+"       this vimrc mainly copy from wklken.me
 "==========================================
 
 "==========================================
@@ -25,8 +24,8 @@
 "==========================================
 
 " 修改leader键
-let mapleader = ','
-let g:mapleader = ','
+let mapleader = '.'
+let g:mapleader = '.'
 
 " 开启语法高亮
 syntax on
@@ -99,7 +98,7 @@ set cursorline
 
 " 设置 退出vim后，内容显示在终端屏幕, 可以用于查看和复制, 不需要可以去掉
 " 好处：误删什么的，如果以前屏幕打开，可以找回
-set t_ti= t_te=
+" set t_ti= t_te=
 
 
 " 鼠标暂不启用, 键盘党....
@@ -675,3 +674,60 @@ highlight clear SpellRare
 highlight SpellRare term=underline cterm=underline
 highlight clear SpellLocal
 highlight SpellLocal term=underline cterm=underline
+
+
+
+" NERDTree
+
+let NERDChristmasTree=0 
+let NERDTreeWinSize=35
+let NERDTreeChDirMode=2
+let DTreeIgnore=['\~$', '\.pyc$', '\.swp$']
+let NERDTreeShowBookmarks=1
+let NERDTreeWinPos="left"
+set encoding=utf-8
+map <C-t> :tabnew<CR>
+map J :tabprev<CR>
+map K :tabnext<CR>
+map <C-w> :tabclose<CR>
+nmap ,d :NERDTreeToggle<cr>
+
+
+" snippest
+let g:UltiSnipsSnippetDirectories=['UltiSnips']
+let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
+let g:UltiSnipsExpandTrigger = '<Tab>'
+let g:UltiSnipsListSnippets = '<C-Tab>'
+let g:UltiSnipsJumpForwardTrigger = '<Tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'
+" tarbag
+let g:tagbar_width=35
+let g:tagbar_autofocus=1
+nmap ,e :TagbarToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+
+
+" ctrlp
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.png,*.jpg,*.jpeg,*.gif,*/data/*,*/logdir/*,*/Datasets/*,*/datasets/*,*/results/* " MacOSX/Linux
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+nmap ,r :CtrlPClearAllCaches<cr>
+if executable('ag')
+" Use Ag over Grep
+    set grepprg=ag\ --nogroup\ --nocolor
+    " Use ag in CtrlP for listing files.
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+    " Ag is fast enough that CtrlP doesn't need to cache
+    let g:ctrlp_use_caching = 0
+    let g:ctrlp_working_path_mode = 'ra'
+endif
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+map ,t :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+map ,v :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+
+
+
+
+

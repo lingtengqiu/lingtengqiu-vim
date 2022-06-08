@@ -17,7 +17,7 @@ filetype off " required! turn off
 " inspired by spf13, 自定义需要的插件集合
 if !exists('g:bundle_groups')
     " let g:bundle_groups=['python', 'javascript', 'golang', 'php', 'ruby', 'shell', 'markdown', 'html', 'css', 'less', 'coffeescript', 'tmux', 'json', 'beta']
-    let g:bundle_groups=['python', 'javascript', 'markdown', 'html', 'css', 'tmux', 'beta']
+    let g:bundle_groups=['python', 'markdown', 'html', 'css', 'tmux', 'beta']
 endif
 
 " ----------------------------------------------------------------------------
@@ -58,7 +58,7 @@ Plug 'scrooloose/nerdcommenter'
 
 " 快速加入修改环绕字符
 " for repeat -> enhance surround.vim, . to repeat command
-Plug 'tpope/vim-repeat' | Plug 'tpope/vim-surround'
+" Plug 'tpope/vim-repeat' | Plug 'tpope/vim-surround'
 " trailingwhitespace
 " 快速去行尾空格 [, + <Space>]
 " Plug 'bronson/vim-trailing-whitespace'
@@ -69,13 +69,13 @@ Plug 'tpope/vim-repeat' | Plug 'tpope/vim-surround'
 " quick movement
 " easymotion
 "更高效的移动 [,, + w/fx/h/j/k/l]
-Plug 'Lokaltog/vim-easymotion'
+" Plug 'Lokaltog/vim-easymotion'
 
 " 更高效的行内移动, f/F/t/T, 才触发
 " quickscope
-Plug 'unblevable/quick-scope'
+" Plug 'unblevable/quick-scope'
 
-Plug 'vim-scripts/matchit.zip'
+" Plug 'vim-scripts/matchit.zip'
 " signature
 " 显示marks - 方便自己进行标记和跳转
 " m[a-zA-Z] add mark
@@ -105,7 +105,7 @@ Plug 'ctrlpvim/ctrlp.vim' | Plug 'tacahiroy/ctrlp-funky'
 " t       在tab中打开(建议)
 " T - Lkie t but focus CtrlSF window instead of opened new tab.
 " q - Quit CtrlSF window.
-Plug 'dyng/ctrlsf.vim'
+" Plug 'dyng/ctrlsf.vim'
 " incsearch
 " Plug 'haya14busa/incsearch.vim'
 " map /  <Plug>(incsearch-forward)
@@ -130,10 +130,10 @@ Plug 'airblade/vim-gitgutter'
 " airline
 " 状态栏增强展示
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline-themes'
 " rainbow_parentheses
 " 括号显示增强
-Plug 'kien/rainbow_parentheses.vim'
+" Plug 'kien/rainbow_parentheses.vim'
 " 主题 solarized
 " solarized
 Plug 'altercation/vim-colors-solarized'
@@ -144,21 +144,21 @@ Plug 'tomasr/molokai'
 
 " nav
 " nerdtree nerdtreetabs
-Plug 'scrooloose/nerdtree' | Plug 'jistr/vim-nerdtree-tabs'
+Plug 'preservim/nerdtree' | Plug 'jistr/vim-nerdtree-tabs'
 " ctrlspace
-Plug 'vim-ctrlspace/vim-ctrlspace'
+" Plug 'vim-ctrlspace/vim-ctrlspace'
 " tagbar
 Plug 'majutsushi/tagbar'
 
 " text object
 " 支持自定义文本对象
-Plug 'kana/vim-textobj-user'
+"Plug 'kana/vim-textobj-user'
 " 增加行文本对象: l   dal yal cil
-Plug 'kana/vim-textobj-line'
+" Plug 'kana/vim-textobj-line'
 " 增加文件文本对象: e   dae yae cie
-Plug 'kana/vim-textobj-entire'
+" Plug 'kana/vim-textobj-entire'
 " 增加缩进文本对象: i   dai yai cii - 相同缩进属于同一块
-Plug 'kana/vim-textobj-indent'
+" Plug 'kana/vim-textobj-indent'
 
 if count(g:bundle_groups, 'tmux')
     " tmux
@@ -167,7 +167,7 @@ if count(g:bundle_groups, 'tmux')
 endif
 
 if count(g:bundle_groups, 'markdown')
-    Plug 'plasticboy/vim-markdown', {'for': 'md'}
+    Plug 'preservim/vim-markdown', {'for': 'md'}
     " https://github.com/suan/vim-instant-markdown
     " npm -g install instant-markdown-d
     " Plug 'suan/vim-instant-markdown'
@@ -187,9 +187,9 @@ endif
 if count(g:bundle_groups, 'python')
     " for python.vim syntax highlight
     " pythonsyntax
-    Plug 'hdima/python-syntax'
-    Plug 'hynek/vim-python-pep8-indent'
-    Plug 'Glench/Vim-Jinja2-Syntax'
+    " Plug 'hdima/python-syntax'
+    " Plug 'hynek/vim-python-pep8-indent'
+    " Plug 'Glench/Vim-Jinja2-Syntax'
 
     " isort  https://github.com/timothycrosley/isort#readme + https://github.com/fisadev/vim-isort#installation
     " pip install isort
@@ -683,35 +683,6 @@ endif
 " }}}
 
 
-
-" rainbow_parentheses {{{
-    " 不加入这行, 防止黑色括号出现, 很难识别
-    " \ ['black',       'SeaGreen3'],
-    let g:rbpt_colorpairs = [
-        \ ['brown',       'RoyalBlue3'],
-        \ ['Darkblue',    'SeaGreen3'],
-        \ ['darkgray',    'DarkOrchid3'],
-        \ ['darkgreen',   'firebrick3'],
-        \ ['darkcyan',    'RoyalBlue3'],
-        \ ['darkred',     'SeaGreen3'],
-        \ ['darkmagenta', 'DarkOrchid3'],
-        \ ['brown',       'firebrick3'],
-        \ ['gray',        'RoyalBlue3'],
-        \ ['darkmagenta', 'DarkOrchid3'],
-        \ ['Darkblue',    'firebrick3'],
-        \ ['darkgreen',   'RoyalBlue3'],
-        \ ['darkcyan',    'SeaGreen3'],
-        \ ['darkred',     'DarkOrchid3'],
-        \ ['red',         'firebrick3'],
-        \ ]
-
-    let g:rbpt_max = 16
-    let g:rbpt_loadcmd_toggle = 0
-    au VimEnter * RainbowParenthesesToggle
-    au Syntax * RainbowParenthesesLoadRound
-    au Syntax * RainbowParenthesesLoadSquare
-    au Syntax * RainbowParenthesesLoadBraces
-" }}}
 
 
 " ################### 显示增强-主题 ###################"
