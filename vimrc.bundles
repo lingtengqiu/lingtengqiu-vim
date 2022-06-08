@@ -30,11 +30,11 @@ call plug#begin('~/.vim/bundle')
 " 移动光标到插件名上, 使用'#'快速跳转到每个插件的配置处
 
 " syntastic
-if v:version < 800
-    Plug 'scrooloose/syntastic'
-else
-    Plug 'w0rp/ale'
-endif
+"if v:version < 800
+"    Plug 'scrooloose/syntastic'
+"else
+"    Plug 'w0rp/ale'
+"endif
 
 " Group dependencies, vim-snippets depends on ultisnips
 " 代码片段快速插入 (snippets中,是代码片段资源,需要学习)
@@ -140,6 +140,7 @@ Plug 'altercation/vim-colors-solarized'
 " molokai
 " 主题 molokai
 Plug 'tomasr/molokai'
+Plug 'morhetz/gruvbox'
 
 
 " nav

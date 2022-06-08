@@ -653,10 +653,14 @@ endif
 
 
 " theme主题
-set background=dark
-set t_Co=256
-
-colorscheme solarized
+syntax on " syntax
+let g:tex_flavor = "latex"
+let g:gruvbox_termcolors=256
+let g:gruvbox_contrast_dark="hard"
+set background=dark    " Setting dark modek
+let g:gruvbox_italic=0 
+colorscheme gruvbox
+" colorscheme solarized
 " colorscheme molokai
 
 
@@ -728,6 +732,21 @@ map ,t :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map ,v :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 
-
-
-
+" YCM
+" let g:ycm_python_interpreter_path = "~/anaconda3/envs/anim-nerf/lib/python3.8" 
+let g:ycm_python_binary_path = '~/anaconda3/bin/python3'
+let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
+let g:ycm_confirm_extra_conf = 0
+nnoremap gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nnoremap g/ :YcmCompleter GetDoc<CR>
+nnoremap gt :YcmCompleter GetType<CR>
+nnoremap gi :YcmCompleter GoToInclude<CR>
+let g:ycm_show_diagnostics_ui = 1
+let g:ycm_enable_diagnostic_signs = 0
+let g:ycm_enable_diagnostic_highlighting = 0
+" let g:ycm_filetype_whitelist = {"c":1, "cpp":1, "sh":1, "py": 1, "js": 1}
+let g:ycm_semantic_triggers = {'c,cpp,python,java,go': ['re!\w{2}'],'javascript': ['re!\w{2}']}
+set completeopt=menu
+let g:ycm_add_preview_to_completeopt = 0
+let g:ycm_seed_identifiers_with_syntax=1           " 语法关键字补全
+let g:ycm_complete_in_comments=1                   " 补全功能在注释中同样有效
