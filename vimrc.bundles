@@ -141,6 +141,7 @@ Plug 'altercation/vim-colors-solarized'
 " 主题 molokai
 Plug 'tomasr/molokai'
 Plug 'morhetz/gruvbox'
+Plug 'jiangmiao/auto-pairs'
 
 
 " nav
