@@ -294,7 +294,7 @@ set wildignore=*.o,*~,*.pyc,*.class
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " 回车即选中当前项
-inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
+" inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
 
 " In the quickfix window, <CR> is used to jump to the error under the
 " cursor, so undefine the mapping there.
@@ -695,6 +695,7 @@ map J :tabprev<CR>
 map K :tabnext<CR>
 map <C-w> :tabclose<CR>
 nmap ,d :NERDTreeToggle<cr>
+nnoremap ,p "0p 
 
 
 " snippest
@@ -750,3 +751,4 @@ set completeopt=menu
 let g:ycm_add_preview_to_completeopt = 0
 let g:ycm_seed_identifiers_with_syntax=1           " 语法关键字补全
 let g:ycm_complete_in_comments=1                   " 补全功能在注释中同样有效
+" let g:ycm_goto_buffer_command = 'same-buffer'
