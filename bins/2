@@ -39,6 +39,7 @@ def sorted_by_order(imgs):
             else:
                 break
 
+        print(img,img[left:right])
         return int(img[left:right], base = base)
 
 
@@ -50,6 +51,7 @@ def sorted_by_order(imgs):
     new_imgs = [(obtain_digit(img.split('.')[0], base = 10), img) for img in new_imgs]
     new_imgs = sorted(new_imgs, key = lambda x:x[0])
     new_imgs = [img[1] for img in new_imgs]
+    print(new_imgs)
     return new_imgs
 
 
@@ -58,6 +60,11 @@ imgs = sorted_by_order(imgs)
 
 
 for f in imgs:
+    for stem in img_format:
+        if stem in f:
+            break
+    else:
+        continue
 
     text += content % (f, f)
 
