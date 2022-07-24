@@ -1,0 +1,51 @@
+# -*- coding: utf-8 -*-
+import os
+import glob
+import fire
+import shutil
+def sorted_by_order(files):
+
+    def obtain_digit(img, base):
+
+        left = 0
+        right = 0
+
+        # the first digits as our order
+        while left<len(img) and right< len(img):
+            if not img[left].isdigit():
+                left+=1
+                right = left
+                continue
+            if img[right].isdigit():
+                right+=1
+                continue
+            else:
+                break
+
+        if left ==len(img):
+            return -1
+        return int(img[left:right], base = base)
+
+
+    new_files = [(obtain_digit(file.split('.')[0], base = 10), file) for file in files]
+    new_files = sorted(new_files, key = lambda x:x[0])
+    new_files = [img[1] for img in new_files]
+    return new_imgs
+def order_files(img_dir):
+
+    all_file = os.listdir(img_dir)
+
+    all_file = sorted_by_order(all_file)
+
+
+    for file_name in all_file:
+        print(file_name)
+    xxx
+
+
+
+
+
+
+if __name__ == '__main__':
+    fire.Fire(order_files)
