@@ -68,6 +68,22 @@ brew install ctags
 brew install the_silver_searcher
 ```
 
+##### 2.1.2 使用update vim
+```
+add-apt-repository ppa:jonathonf/vim
+apt-get install vim
+```
+##### 2.1.3 update cmake
+```
+sudo apt-get autoremove cmake
+sudo ln -sf /cmake解压文件夹名/bin/* /usr/bin/
+```
+##### 2.1.4 gcc version update 
+```
+apt-get install g++-8
+update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 700 --slave /usr/bin/g++ g++ /usr/bin/g++-7
+update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 800 --slave /usr/bin/g++ g++ /usr/bin/g++-8
+```
 ##### 2.2 使用Python
 
 ```

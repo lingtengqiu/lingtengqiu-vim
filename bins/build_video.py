@@ -8,7 +8,6 @@ def image_to_video(image_path, handler, frame = 30, object_name = None):
         image_path = image_path[:-1]
 
     handler = handler.replace('[','*')
-
     object_name = image_path.split("/")[-1] if object_name == None else object_name
     cmd ='rm -rf {}'.format(os.path.join(image_path, object_name))
     os.system(cmd)
