@@ -732,6 +732,9 @@ let g:ctrlp_cmd = 'CtrlP'
 map ,t :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map ,v :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
+" CUDA
+" Map cuda files to c++ so that Ycm can parse
+autocmd BufNewFile,BufRead *.cu set filetype=cpp
 
 " YCM
 " let g:ycm_python_interpreter_path = "~/anaconda3/envs/anim-nerf/lib/python3.8" 
