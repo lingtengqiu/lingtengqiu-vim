@@ -54,7 +54,8 @@ Plug 'Valloric/YouCompleteMe'
 " quick edit
 " 快速注释
 Plug 'scrooloose/nerdcommenter'
-
+" folder
+Plug 'https://github.com/tmhedberg/SimpylFold.git'
 
 " 快速加入修改环绕字符
 " for repeat -> enhance surround.vim, . to repeat command

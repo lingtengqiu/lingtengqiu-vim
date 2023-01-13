@@ -693,7 +693,7 @@ set encoding=utf-8
 map <C-t> :tabnew<CR>
 map J :tabprev<CR>
 map K :tabnext<CR>
-map <C-w> :tabclose<CR>
+" map <C-w> :tabclose<CR>
 nmap ,d :NERDTreeToggle<cr>
 nnoremap ,p "0p 
 
