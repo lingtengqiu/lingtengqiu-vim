@@ -68,3 +68,45 @@ endsnippet
 snippet nqa
 # noqa
 endsnippet
+
+
+
+
+# shell snip
+snippet usage "usage_function for script" 
+usage() {
+  echo "Usage: ${0} [-g|--gpu] [-d|--dir] [-ws|--workspace] "  1>&2
+  exit 1
+}
+while [[ $# -gt 0 ]];do
+  key=\${1}
+  case \${key} in
+    -g|--gpu)
+      CUDA_DEVICE=\${2}
+      shift 2
+      ;;
+    -d|--dir)
+      INPUTS=\${2}
+      shift 2
+      ;;
+    -ws|--workspace)
+      WORKSAPCE=\${2}
+      shift 2
+      ;;
+    *)
+      usage
+      shift
+      ;;
+  esac
+done
+
+
+CUDA_VISIBLE_DEVICES=\${CUDA_DEVICE} ${1}
+
+endsnippet
+
+
+
+
+
+
